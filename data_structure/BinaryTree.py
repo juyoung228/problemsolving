@@ -121,7 +121,11 @@ class BinaryTree:
             else:
                 cur.val = self.__most_left_val_from_right_node(cur.right).val
                 self.__removeitem(cur, cur.right, cur.val)
-
+        else:
+            if cur.val > item:
+                self.__remove(cur, cur.left, item)
+            else:
+                self.__remove(cur, cur.right, item)
 
     def __most_left_val_from_right_node(self, cur):
         if cur.left is None:
